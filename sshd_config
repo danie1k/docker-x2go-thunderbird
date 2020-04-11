@@ -1,0 +1,18 @@
+Port 22
+ChallengeResponseAuthentication no
+
+UsePAM no
+PasswordAuthentication no
+PermitEmptyPasswords no
+
+AllowUsers docker
+AllowGroups docker
+
+X11Forwarding yes
+PermitTTY yes
+PrintMotd no
+UseDNS no
+
+AcceptEnv LANG LC_*
+
+Subsystem sftp /usr/lib/openssh/sftp-server

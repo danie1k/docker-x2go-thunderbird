@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+# Usage: ./notify -s "subject" -m "message" -h "host" -p 4000
+# See notify-server.py
+
+while getopts ":s:m:h:p:t:" arg; do
+  case ${arg} in
+    s) SUBJECT=$OPTARG ;;
+    m) MESSAGE=$OPTARG ;;
+    h) HOST=$OPTARG ;;
+    p) PORT=$OPTARG ;;
+    t) TOKEN=$OPTARG ;;
+  esac
+done
+
+curl -X POST -H "Authorization: ${TOKEN}" -F subject="${SUBJECT}" -F message="${MESSAGE}" http://${HOST}:${PORT} &>/dev/null 2>&1 &
+exit 0

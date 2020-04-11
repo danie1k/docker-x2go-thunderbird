@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+/usr/bin/thunderbird --profile /thunderbird-profile
