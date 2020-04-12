@@ -5,8 +5,7 @@ UsePAM no
 PasswordAuthentication no
 PermitEmptyPasswords no
 
-AllowUsers docker
-AllowGroups docker
+AllowUsers nonroot
 
 X11Forwarding yes
 PermitTTY yes
