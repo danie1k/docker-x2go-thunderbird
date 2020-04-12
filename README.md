@@ -1,9 +1,8 @@
 # danie1k/x2go-thunderbird
 Thunderbird + x2go server @ Debian + Openbox
 
-Includes two volumes:
-* `/home/docker/.ssh`
-* `/thunderbird-profile`
+Volumes:
+* `/home/docker/.profile`
 
 Exposes port `22`.
 
