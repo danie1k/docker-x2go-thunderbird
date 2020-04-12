@@ -9,7 +9,6 @@ ARG PROFILEDIR=".thunderbird"
 ENV NONROOT_UID=$UID
 ENV NONROOT_GID=$GID
 ENV NONROOT_HOME=$WORKDIR
-ENV THUNDERBIRD_PROFILE_PATH=$WORKDIR/$PROFILEDIR
 
 RUN apt-get update \
  && DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
@@ -40,9 +39,8 @@ RUN echo "0 * * * * $WORKDIR/sqlite-optimize-profile.sh > /dev/null 2>&1" >> /et
 
 # Add required files
 COPY ./ensure-ssh-key.sh /ensure-ssh-key.sh
-COPY ./run-thunderbird $WORKDIR/run-thunderbird
 COPY ./notify $WORKDIR/notify
-RUN chmod +x /ensure-ssh-key.sh $WORKDIR/run-thunderbird $WORKDIR/notify
+RUN chmod +x /ensure-ssh-key.sh $WORKDIR/notify
 
 RUN chown -R $UID:$GID $WORKDIR
 
